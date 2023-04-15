@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" style="padding-top: 8px">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>管理员删减景点信息</ion-title>
+    <ion-buttons slot="end" style="padding-top: 8px">
+      <ion-button (click)="dologout()"> 退出登录 </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item>
+      <ion-label position="floating">
+        请输入你要删除的景点ID号:
+      </ion-label>
+      <ion-input [(ngModel)]="productid" type="text"></ion-input>
+    </ion-item>
+  </ion-card>
+
+  <ion-button expand="block" (click)="deleteproduct()">提交</ion-button>

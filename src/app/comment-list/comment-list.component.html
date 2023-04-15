@@ -1,0 +1,10 @@
+<!-- comment-list.component.html -->
+<ion-list>
+  <ion-item *ngFor="let comment of comments">
+    <ion-label>
+      <h3>{{ comment.username }}</h3>
+      <div>{{ comment.message }}</div>
+    </ion-label>
+    <ion-label slot="end">{{ comment.date | date: 'yyyy-MM-dd' }}</ion-label>
+  </ion-item>
+</ion-list>

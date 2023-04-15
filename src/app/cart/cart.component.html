@@ -1,0 +1,54 @@
+<!-- cart.component.html -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>购物车</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list >
+    <ion-item *ngFor="let item of sharedService.cartItems">
+      <ion-checkbox slot="start" [(ngModel)]="item.selected" (ionChange)="calculateTotals()"></ion-checkbox>
+      <ion-avatar slot="start">
+        <img [src]="item.image1" />
+      </ion-avatar>
+      <div style="display: flex; align-items: center">
+        <div>
+          <ion-label>
+            <p>{{ item.title }}</p>
+            <p>￥{{ item.price }}</p>
+          </ion-label>
+        </div>
+        <div style="padding-left: 5px">
+          <ion-input
+            type="number"
+            [(ngModel)]="item.quantity"
+            color="primary"
+            min="1"
+            (ionChange)="updateCartItemQuantity(item, $event)"
+            ></ion-input>
+          <!-- <div style="display: flex; align-items: center;">
+            <ion-button (click)="decrementQuantity(item)">-</ion-button>
+            <ion-label>{{item.quantity}}</ion-label>
+            <ion-button (click)="incrementQuantity(item)">+</ion-button>
+          </div> -->
+          <!-- <ion-checkbox [(ngModel)]="item.selected" (ionChange)="toggleSelectCartItem(item)"></ion-checkbox> 添加选择复选框 -->
+          <ion-button color="danger" (click)="deleteCartItem(item)"
+            >删除</ion-button
+          >
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+  <div class="cart-summary">
+    <ion-label slot="start"><span>商品总数：{{totalQuantity}}</span>
+      <span style="padding-left: 5px;">总价：{{totalAmount}} 元</span></ion-label>
+      <ion-button color="success"(click)="pay()" slot="end" style="padding-left: 10px;">支付</ion-button>
+  </div> 
+</ion-content>

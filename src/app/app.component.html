@@ -1,0 +1,5 @@
+<ion-app>
+  <ion-router-outlet></ion-router-outlet>
+  <app-main *ngIf="!sharedService.isAdminin"></app-main>
+  <app-main2 *ngIf="sharedService.isAdminin"></app-main2>
+</ion-app>

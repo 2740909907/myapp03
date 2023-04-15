@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>管理员增删信息</ion-title>
+    <ion-buttons slot="end" style="padding-top: 8px">
+      <ion-button (click)="dologout()"> 退出登录 </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item>
+      <ion-label slot="start">增加景点</ion-label>
+      <ion-button slot="end" routerLink="/addproduct" >查看详情</ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-label slot="start">删除景点</ion-label>
+      <ion-button slot="end" routerLink="/deleteproduct" >查看详情</ion-button>
+    </ion-item>
+  </ion-card>
+</ion-content>

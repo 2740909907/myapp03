@@ -1,0 +1,10 @@
+<!-- comment.component.html -->
+<div class="comment-container">
+  <ion-item>
+    <ion-input [(ngModel)]="username" placeholder="用户名"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-textarea [(ngModel)]="message" placeholder="请输入评论"></ion-textarea>
+  </ion-item>
+  <ion-button (click)="addComment()">提交评论</ion-button>
+</div>

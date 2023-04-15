@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <img src="../../assets/logo.png" slot="start" />
+    <form [formGroup]="searchForm">
+      <ion-searchbar
+        placeholder="景点搜索"
+        formControlName="searchInput"
+        (ionInput)="onInput()"
+        (ionBlur)="onSearch()"
+      ></ion-searchbar>
+    </form>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="!searchResult">未找到该景点</div>
+  <div *ngIf="searchResult">
+    <!-- 显示查询结果 -->
+    <ion-card>
+      <ion-item detail="true">
+        <ion-thumbnail slot="start">
+          <img [src]="searchResult.image_url" />
+        </ion-thumbnail>
+        <ion-label>
+          <h3>{{ searchResult.name1 }}</h3>
+          <p>{{ searchResult.name2 }}</p>
+          <ion-text color="danger">￥{{ searchResult.price }}</ion-text>
+        </ion-label>
+        <ion-button slot="end" routerLink="/hotel">查看详情</ion-button>
+      </ion-item>
+    </ion-card>
+  </div>
+</ion-content>

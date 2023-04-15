@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-label>订酒店</ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item detail="true">
+      <ion-thumbnail slot="start">
+        <img src="../../assets/liebiao/6.jpg">
+      </ion-thumbnail>
+      <ion-label>
+        <h3>四眼井的投影民宿</h3>
+        <p>舒适型|距景区0.4km</p> 
+        <ion-text color="danger">￥154</ion-text>起
+      </ion-label>
+      <ion-button slot="end" routerLink="/hotel">查看详情</ion-button>
+    </ion-item>
+    <ion-item detail="true">
+      <ion-thumbnail slot="start">
+        <img src="../../assets/liebiao/7.jpg">
+      </ion-thumbnail>
+      <ion-label>
+        <h3>杭州懒墅庭院民宿</h3> 
+        <p>舒适型|距景区0.3km</p>
+        <ion-text color="danger">￥13288</ion-text>起
+      </ion-label>
+      <ion-button slot="end">查看详情</ion-button>
+    </ion-item>
+    <ion-item detail="true">
+      <ion-thumbnail slot="start">
+        <img src="../../assets/liebiao/8.jpg">
+      </ion-thumbnail>
+      <ion-label>
+        <h3>杭州西厢民宿</h3> 
+        <ion-text color="danger">￥296</ion-text>起
+      </ion-label>
+      <ion-button slot="end">查看详情</ion-button>
+    </ion-item>
+  </ion-card>
+</ion-content>

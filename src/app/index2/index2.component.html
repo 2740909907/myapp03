@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>景点信息</ion-title>
+    <ion-buttons slot="end" style="padding-top: 8px">
+      <ion-button (click)="dologout()"> 退出登录 </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let product of sharedservice.productdetailItems">
+    <ion-slides pager="true">
+      <ion-slide>
+        <img [src]="product.image1" />
+      </ion-slide>
+      <ion-slide>
+        <img [src]="product.image2" />
+      </ion-slide>
+      <ion-slide>
+        <img [src]="product.image3" />
+      </ion-slide>
+    </ion-slides>
+    <ion-card-header>
+      <ion-card-title style="font-size: 1em">{{
+        product.title
+      }}</ion-card-title>
+      <ion-card-subtitle>
+        <p>{{ product.title1 }}</p>
+        <p>{{ product.title2 }}</p>
+        <p>景点ID：{{ product.product_id }}</p>
+        <!-- 开放时间：07：00-17：00，16：00停止入场 -->
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item *ngIf="product">
+        <ion-label color="danger">
+          {{ product.price | currency : "￥" }}
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label> 游玩须知： </ion-label>
+      </ion-item>
+      <ion-card>
+        <ion-card-content>
+          <ion-label color="dark" style="padding-left: 5px" *ngIf="product">
+            <div><strong> 开放时间：</strong>{{ product.content1 }}</div>
+            <div><strong> 景点信息：</strong>{{ product.content2 }}</div>
+          </ion-label>
+          <ion-label color="dark" *ngIf="product">
+            <strong> 景区热线：</strong>{{ product.phone }}
+          </ion-label>
+        </ion-card-content>
+      </ion-card>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

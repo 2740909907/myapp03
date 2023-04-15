@@ -1,0 +1,162 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>景点详情</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button routerLink="/cart">
+        <ion-icon name="cart" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngIf="product">
+    <ion-label>
+      {{ product.title }}
+    </ion-label>
+  </ion-item>
+
+  <ion-slides pager="true" *ngIf="product">
+    <ion-slide>
+      <img [src]="product.image1" />
+    </ion-slide>
+    <ion-slide>
+      <img [src]="product.image2" />
+    </ion-slide>
+    <ion-slide>
+      <img [src]="product.image3" />
+    </ion-slide>
+  </ion-slides>
+
+  <ion-card>
+    <ion-card-header *ngIf="product">
+      <ion-card-title style="font-size: 1em">{{
+        product.title1
+      }}</ion-card-title>
+      <ion-card-subtitle>
+        <p>{{ product.title2 }}</p>
+        <!-- 开放时间：07：00-17：00，16：00停止入场 -->
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item *ngIf="product">
+        <ion-label color="danger">
+          {{ product.price | currency : "￥" }}
+        </ion-label>
+        <ion-button slot="end" (click)="addProductToCart(product.product_id, 1)"
+          >加入购物车</ion-button
+        >
+      </ion-item>
+      <ion-item>
+        <ion-label> 游玩须知： </ion-label>
+      </ion-item>
+      <ion-card>
+        <ion-card-content>
+          <ion-label color="dark" style="padding-left: 5px" *ngIf="product">
+            <div><strong> 开放时间：</strong>{{ product.content1 }}</div>
+            <div><strong> 景点信息：</strong>{{ product.content2 }}</div>
+          </ion-label>
+          <ion-label color="dark" *ngIf="product">
+            <strong> 景区热线：</strong>{{ product.phone }}
+          </ion-label>
+        </ion-card-content>
+      </ion-card>
+      <ion-label color="dark"><strong>酒店推荐</strong></ion-label>
+      <ion-item detail="true">
+        <ion-thumbnail slot="start" *ngIf="product">
+          <img [src]="product.picture1" />
+        </ion-thumbnail>
+        <ion-label *ngIf="product">
+          <h3>{{ product.hotel1name }}</h3>
+          <p>{{ product.hotel1a }}</p>
+          <ion-text color="danger">{{
+            product.hotel1price | currency : "￥"
+          }}</ion-text
+          >起
+        </ion-label>
+        <ion-button
+          slot="end"
+          routerLink="/hotel"
+          *ngIf="hotels"
+          (click)="viewHotelDetails(hotels[0].hotel_id)"
+          >查看详情</ion-button
+        >
+      </ion-item>
+      <ion-item detail="true">
+        <ion-thumbnail slot="start" *ngIf="product">
+          <img [src]="product.picture2" />
+        </ion-thumbnail>
+        <ion-label *ngIf="product">
+          <h3>{{ product.hotel2name }}</h3>
+          <p>{{ product.hotel2a }}</p>
+          <ion-text color="danger">{{
+            product.hotel2price | currency : "￥"
+          }}</ion-text
+          >起
+        </ion-label>
+        <ion-button
+          slot="end"
+          *ngIf="hotels"
+          (click)="viewHotelDetails(hotels[1].hotel_id)"
+          >查看详情</ion-button
+        >
+      </ion-item>
+      <ion-item detail="true">
+        <ion-thumbnail slot="start" *ngIf="product">
+          <img [src]="product.picture3" />
+        </ion-thumbnail>
+        <ion-label *ngIf="product">
+          <h3>{{ product.hotel3name }}</h3>
+          <p>{{ product.hotel3a }}</p>
+          <ion-text color="danger">{{
+            product.hotel3price | currency : "￥"
+          }}</ion-text
+          >起
+        </ion-label>
+        <ion-button
+          slot="end"
+          *ngIf="hotels"
+          (click)="viewHotelDetails(hotels[2].hotel_id)"
+          >查看详情</ion-button
+        >
+      </ion-item>
+      <!-- <ion-button expand="block" routerLink="/hotel-list"
+        >查看更多酒店</ion-button
+      > -->
+      <ion-label> 评论区 </ion-label>
+      <!-- <app-comment-list></app-comment-list> -->
+      <ion-list *ngIf="product">
+        <ion-item *ngFor="let comment of commentItems">
+          <ion-label>
+            <h3>{{ comment.username }}</h3>
+            <div>{{ comment.comment_text }}</div>
+          </ion-label>
+          <ion-label slot="end">{{
+            comment.comment_time | date : "yyyy-MM-dd"
+          }}</ion-label>
+        </ion-item>
+      </ion-list>
+      <!-- <app-comment></app-comment> -->
+      <div class="comment-container">
+        <ion-item>
+          <ion-label></ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-textarea
+            [(ngModel)]="message"
+            placeholder="请输入评论"
+          ></ion-textarea>
+        </ion-item>
+        <ion-button (click)="addComment()">提交评论</ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" style="padding-top: 8px;">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-searchbar placeholder="景点搜索" style="padding-top: 10px;"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item detail="true">
+      <ion-thumbnail slot="start">
+        <img src="../../assets/liebiao/0.jpg">
+      </ion-thumbnail>
+      <ion-label>
+        <p>深圳独角兽星空艺术馆</p> 
+        <ion-text color="danger">￥49</ion-text>
+      </ion-label>
+      <ion-button slot="end">查看详情</ion-button>
+    </ion-item>
+    <ion-item detail="true">
+      <ion-thumbnail slot="start">
+        <img src="../../assets/liebiao/1.jpg">
+      </ion-thumbnail>
+      <ion-label>
+        <p>广东科学中心</p> 
+        <ion-text color="danger">￥59</ion-text>
+      </ion-label>
+      <ion-button slot="end">查看详情</ion-button>
+    </ion-item>
+    <ion-item detail="true">
+      <ion-thumbnail slot="start">
+        <img src="../../assets/liebiao/2.jpg">
+      </ion-thumbnail>
+      <ion-label>
+        <p>杭州动物园</p> 
+        <ion-text color="danger">￥64</ion-text>
+      </ion-label>
+      <ion-button slot="end">查看详情</ion-button>
+    </ion-item>
+  </ion-card>
+</ion-content>

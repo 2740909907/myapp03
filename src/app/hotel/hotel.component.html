@@ -1,0 +1,178 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>景点详情</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button routerLink="/cart">
+        <ion-icon name="cart" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header> -->
+
+<!-- <ion-content>
+  <ion-item>
+    <ion-label>
+      杭州动物园
+    </ion-label>
+  </ion-item>
+
+  <ion-slides pager="true">
+    <ion-slide>
+      <img src="../../assets/liebiao/3.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="../../assets/liebiao/4.jpg">
+    </ion-slide>
+    <ion-slide>
+      <img src="../../assets/liebiao/5.jpg">
+    </ion-slide>
+  </ion-slides>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title style="font-size: 1em;">杭州|动物园|5A景区</ion-card-title>
+      <ion-card-subtitle>
+        <p>浙江省杭州市西湖区虎跑路40号</p>
+        开放时间：07：00-17：00，16：00停止入场
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label color="danger">
+          ￥64
+        </ion-label>
+        <ion-button slot="end">添加到购物车</ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          游玩须知：
+        </ion-label>
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content> -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title> 酒店客房预定 </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label> 酒店详情 </ion-label>
+  </ion-item>
+  <ion-slides pager="true" *ngIf="hotel">
+    <ion-slide>
+      <img [src]="hotel.image_url" />
+    </ion-slide>
+  </ion-slides>
+  <ion-card>
+    <ion-card-header *ngIf="hotel">
+      <ion-card-title style="font-size: 1em">{{
+        hotel.hotel_name
+      }}</ion-card-title>
+      <ion-card-subtitle
+        ><p>{{ hotel.address }}</p>
+        <p>{{ hotel.phone_number }}</p></ion-card-subtitle
+      >
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>
+        <ion-text color="dark">客房</ion-text>
+      </ion-label>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img src="../../assets/liebiao/9.jpg" />
+        </ion-thumbnail>
+        <ion-label *ngIf="hotel">
+          双床房|有窗
+          <ion-text color="danger">{{
+            hotel.price2 | currency : "￥"
+          }}</ion-text>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img src="../../assets/liebiao/10.jpg" />
+        </ion-thumbnail>
+        <ion-label *ngIf="hotel">
+          单人房|有窗
+          <ion-text color="danger">{{
+            hotel.price1 | currency : "￥"
+          }}</ion-text>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img src="../../assets/liebiao/11.jpg" />
+        </ion-thumbnail>
+        <ion-label *ngIf="hotel">
+          家庭房|有窗
+          <ion-text color="danger">{{
+            hotel.price3 | currency : "￥"
+          }}</ion-text>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-card-header><strong> 客房预订 </strong></ion-card-header>
+  <ion-list>
+    <ion-item>
+      <ion-label>入住时间</ion-label>
+      <ion-datetime
+        displayFormat="YYYY-MM-DD HH:mm"
+        pickerFormat="D MMM YYYY HH:mm"
+        [(ngModel)]="checkinTime"
+        [min]="minDate"
+        [max]="maxDate"
+        (ionChange)="onCheckinTimeChange($event)"
+      ></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>离店时间</ion-label>
+      <ion-datetime
+        displayFormat="YYYY-MM-DD HH:mm"
+        pickerFormat="D MMM YYYY HH:mm"
+        [(ngModel)]="checkoutTime"
+        [min]="minDate"
+        [max]="maxDate"
+        (ionChange)="onCheckoutTimeChange($event)"
+      ></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>房型</ion-label>
+      <ion-select
+        [(ngModel)]="roomType"
+        (ionChange)="onCheckinTimeChange($event)"
+      >
+        <ion-select-option value="单人房">单人房</ion-select-option>
+        <ion-select-option value="双人房">双人房</ion-select-option>
+        <ion-select-option value="家庭房">家庭房</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>入住天数</ion-label>
+      <ion-label>{{ totalNights }} 天</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>总价</ion-label>
+      <ion-label>{{ totalPrice }} 元</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="block" (click)="onReserveClick()">预订</ion-button>
+</ion-content>

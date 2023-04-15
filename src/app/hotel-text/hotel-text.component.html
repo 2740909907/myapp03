@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>酒店客房信息</ion-title>
+    <ion-buttons slot="end" style="padding-top: 8px">
+      <ion-button (click)="dologout()"> 退出登录 </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let hotel of sharedservice.hotel1Items">
+    <ion-slides pager="true">
+      <ion-slide>
+        <img [src]="hotel.image_url" />
+      </ion-slide>
+    </ion-slides>
+    <ion-card-header>
+      <ion-card-title style="font-size: 1em">{{
+        hotel.hotel_name
+      }}</ion-card-title>
+      <ion-card-subtitle>
+        <P>酒店ID:{{ hotel.hotel_id }}</P>
+        <p>{{ hotel.address }}</p>
+        <p>{{ hotel.phone_number }}</p>
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label>
+        <ion-text color="dark">客房</ion-text>
+      </ion-label>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img src="../../assets/liebiao/9.jpg" />
+        </ion-thumbnail>
+        <ion-label>
+          双床房|有窗
+          <ion-text color="danger">{{
+            hotel.price2 | currency : "￥"
+          }}</ion-text>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img src="../../assets/liebiao/10.jpg" />
+        </ion-thumbnail>
+        <ion-label>
+          单人房|有窗
+          <ion-text color="danger">{{
+            hotel.price1 | currency : "￥"
+          }}</ion-text>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <img src="../../assets/liebiao/11.jpg" />
+        </ion-thumbnail>
+        <ion-label>
+          家庭房|有窗
+          <ion-text color="danger">{{
+            hotel.price3 | currency : "￥"
+          }}</ion-text>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

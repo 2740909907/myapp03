@@ -1,0 +1,173 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" style="padding-top: 8px">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>管理员增加景点信息</ion-title>
+    <ion-buttons slot="end" style="padding-top: 8px">
+      <ion-button (click)="dologout()"> 退出登录 </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <!-- <h3>景点已更新至{{ length }}</h3> -->
+    <ion-item>
+      <ion-label position="floating"> 景点ID： </ion-label>
+      <ion-input [(ngModel)]="productid" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 景点名字： </ion-label>
+      <ion-input type="text" [(ngModel)]="title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 景点图片存储地址1： </ion-label>
+      <ion-input type="text" [(ngModel)]="image1"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 景点图片存储地址2： </ion-label>
+      <ion-input type="text" [(ngModel)]="image2"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 景点图片存储地址3： </ion-label>
+      <ion-input type="text" [(ngModel)]="image3"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 景点描述： </ion-label>
+      <ion-input type="text" [(ngModel)]="title1"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 景点地址： </ion-label>
+      <ion-input type="text" [(ngModel)]="title2"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 景点价格： </ion-label>
+      <ion-input type="text" [(ngModel)]="price"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 景点相关内容1： </ion-label>
+      <ion-input type="text" [(ngModel)]="content1"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 景点相关内容2： </ion-label>
+      <ion-input type="text" [(ngModel)]="content2"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 景点热线 </ion-label>
+      <ion-input type="text" [(ngModel)]="phone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店1ID </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel1ID"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店1名字 </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel1name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店1描述 </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel1a"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店1地址 </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel1address"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店1热线 </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel1phone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店1图片存储地址 </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel1picture"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店1单人房价格 </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel1price1"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店1双人房价格 </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel1price2"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店1家庭房价格 </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel1price3"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店2ID </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel2ID"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店2名字 </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel2name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店2描述 </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel2a"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店2地址 </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel2address"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店2热线 </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel2phone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店2图片存储地址 </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel2picture"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店2单人房价格 </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel2price1"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店2双人房价格 </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel2price2"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店2家庭房价格 </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel2price3"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店3ID </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel3ID"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店3名字 </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel3name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店3描述 </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel3a"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店3地址 </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel3address"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店3热线 </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel3phone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店3图片存储地址 </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel3picture"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店3单人房价格 </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel3price1"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店3双人房价格 </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel3price2"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 与景点相关的酒店3家庭房价格 </ion-label>
+      <ion-input type="text" [(ngModel)]="hotel3price3"></ion-input>
+    </ion-item>
+  </ion-card>
+
+  <ion-button expand="block" (click)="addproduct()">提交</ion-button>
+</ion-content>

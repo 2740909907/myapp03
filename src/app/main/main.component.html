@@ -1,0 +1,28 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="index">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>首页</ion-label>
+    </ion-tab-button>
+
+    <!-- <ion-tab-button tab="product-list">
+      <ion-icon name="list"></ion-icon>
+      <ion-label>更多</ion-label>
+    </ion-tab-button> -->
+
+    <ion-tab-button tab="cart" (click)="cartlist()">
+      <ion-icon name="cart"></ion-icon>
+      <ion-label>购物车</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="user-login" *ngIf="!sharedService.isLoggedin">
+      <ion-icon name="person"></ion-icon>
+      <ion-label>登录</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button *ngIf="sharedService.isLoggedin" tab="user-text">
+      <ion-icon name="person"></ion-icon>
+      <ion-label>用户信息</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

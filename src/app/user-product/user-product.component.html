@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" style="padding-top: 8px">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>已支付的景点信息</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of sharedService.productItems">
+      <ion-label>
+        {{ item.title }}
+      </ion-label>
+      <ion-label> ￥{{ item.price * item.quantity }} </ion-label>
+      <ion-label> 数量：{{ item.quantity }} </ion-label>
+      <ion-label color="primary"> 已支付 </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

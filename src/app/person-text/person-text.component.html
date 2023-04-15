@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>用户购买信息</ion-title>
+    <ion-buttons slot="end" style="padding-top: 8px">
+      <ion-button (click)="dologout()"> 退出登录 </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item><strong><h3>已支付的景点信息</h3></strong></ion-item>
+  <ion-list>
+    <ion-item *ngFor="let item of personItem">
+      <ion-label>
+        {{ item.username }}
+      </ion-label>
+      <ion-label>
+        {{ item.title }}
+      </ion-label>
+      <ion-label> ￥{{ item.price * item.quantity }} </ion-label>
+      <ion-label> 数量：{{ item.quantity }} </ion-label>
+      <ion-label color="primary"> 已支付 </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-item><strong><h3>已支付的酒店信息</h3></strong></ion-item>
+  <ion-list>
+    <ion-item *ngFor="let item1 of hotelItem">
+      <ion-label>
+        {{ item1.username }}
+      </ion-label>
+      <ion-label>
+        {{ item1.title }}
+      </ion-label>
+      <ion-label>{{ item1.roomType }}</ion-label>
+      <ion-label>天数：{{ item1.totalNights }}</ion-label>
+      <ion-label>￥{{ item1.totalPrice }}</ion-label>
+      <ion-label color="primary"> 已支付 </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

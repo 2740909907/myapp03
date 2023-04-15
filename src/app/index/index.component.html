@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <img src="../../assets/logo.png" slot="start" />
+    <!-- <ion-searchbar placeholder="景点搜索" (click)="goToSearchPage()"></ion-searchbar> -->
+    <h3 color="primary" slot="end" style="display: inline-block">
+      <strong>旅游景点</strong>
+    </h3>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides pager="true">
+    <ion-slide *ngFor="let c of carousel">
+      <div class="img"><img [src]="c.image_url" /></div>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-item>
+    <ion-icon name="star" color="warning" slot="start"></ion-icon>
+    <ion-label>首页推荐</ion-label>
+  </ion-item>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let item of sharedService.product1Items">
+        <ion-card>
+          <img [src]="item.image_url" />
+          <ion-card-header>
+            <ion-card-title class="card">{{ item.name1 }}</ion-card-title>
+            <ion-card-subtitle class="card1">{{
+              item.name2
+            }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-label color="primary">{{
+              item.price | currency : "￥"
+            }}</ion-label>
+            <ion-button (click)="viewProductDetails(item.id)"
+              >查看详情</ion-button
+            >
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
